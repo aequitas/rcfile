@@ -3,13 +3,19 @@ from __future__ import unicode_literals
 import unittest
 import mock
 import os
+import sys
 
 from rcfile import rcfile
+
+if sys.version_info[0] == 2:
+    configparser = 'ConfigParser.ConfigParser'
+else:
+    configparser = 'configparser.ConfigParser'
 
 
 class Testrcfile(unittest.TestCase):
 
-    @mock.patch('ConfigParser.ConfigParser')
+    @mock.patch(configparser)
     def test_rcfile(self, mock_configparser):
         pre_args = {}
 

@@ -1,5 +1,4 @@
 import sys
-import os
 import subprocess
 
 from setuptools import setup
@@ -24,6 +23,7 @@ if 'run_tests' in sys.argv:
         sys.exit(1)
     status = subprocess.call(TEST_CMD, shell=True)
     sys.exit(status)
+
 
 def read(fname):
     with open(fname) as fp:
