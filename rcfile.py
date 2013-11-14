@@ -5,7 +5,7 @@ from __future__ import unicode_literals, print_function
 from os.path import join, expanduser
 import os
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Johan Bloemberg"
 __license__ = "MIT"
 
@@ -44,7 +44,7 @@ def get_config(appname, config_file):
         join(home, '.%s' % appname, 'config'),
         join(home, '.%src' % appname),
         '.%src' % appname,
-        config_file
+        config_file or ''
     ]
 
     config = ConfigParser.ConfigParser()

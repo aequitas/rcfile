@@ -14,6 +14,8 @@ rcfile
 
 Configuration file loader for Python projects
 
+Based on: https://github.com/dominictarr/rc
+
 Features
 --------
 
