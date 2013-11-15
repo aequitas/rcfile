@@ -11,6 +11,8 @@ rcfile
 .. image:: https://pypip.in/d/rcfile/badge.png
         :target: https://crate.io/packages/rcfile?version=latest
 
+.. image:: https://coveralls.io/repos/aequitas/rcfile/badge.png?branch=master 
+        :target: https://coveralls.io/r/aequitas/rcfile?branch=master
 
 Configuration file loader for Python projects
 
