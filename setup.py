@@ -32,7 +32,7 @@ def read(fname):
 
 setup(
     name='rcfile',
-    version="0.1.1",
+    version="0.1.2",
     description='Configuration file loader',
     long_description=read("README.rst"),
     author='Johan Bloemberg',

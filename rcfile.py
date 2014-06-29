@@ -4,11 +4,13 @@
 from __future__ import unicode_literals, print_function
 from os.path import join, expanduser
 import os
+import logging
 
 __version__ = "0.1.1"
 __author__ = "Johan Bloemberg"
 __license__ = "MIT"
 
+log = logging.getLogger(__name__)
 
 try:  # Python 2
     import ConfigParser
@@ -48,7 +50,8 @@ def get_config(appname, config_file):
     ]
 
     config = ConfigParser.ConfigParser()
-    config.read(files)
+    read = config.read(files)
+    log.debug('files read: %s' % read) 
 
     if not config.has_section(appname):
         return {}
