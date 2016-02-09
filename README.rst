@@ -8,9 +8,9 @@ rcfile
 .. image:: https://travis-ci.org/aequitas/rcfile.png?branch=master
         :target: https://travis-ci.org/aequitas/rcfile
 
-.. image:: https://pypip.in/d/rcfile/badge.png
-        :target: https://crate.io/packages/rcfile?version=latest
-
+.. image:: https://badge.fury.io/py/rcfile.svg
+    :target: https://badge.fury.io/py/rcfile
+    
 .. image:: https://coveralls.io/repos/aequitas/rcfile/badge.png?branch=master 
         :target: https://coveralls.io/r/aequitas/rcfile?branch=master
 
