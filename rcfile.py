@@ -6,7 +6,7 @@ from os.path import join, expanduser
 import os
 import logging
 
-__version__ = "0.1.1"
+__version__ = "0.1.4"
 __author__ = "Johan Bloemberg"
 __license__ = "MIT"
 
@@ -36,7 +36,7 @@ def get_environment(appname):
     return dict([(k.replace(prefix, '').lower(), v) for k, v in vars])
 
 
-def get_config(appname, config_file):
+def get_config(appname, module_name, config_file):
     home = expanduser('~')
     files = [
         join('/etc', appname, 'config'),
@@ -51,15 +51,15 @@ def get_config(appname, config_file):
 
     config = ConfigParser.ConfigParser()
     read = config.read(files)
-    log.debug('files read: %s' % read) 
+    log.debug('files read: %s' % read)
 
-    if not config.has_section(appname):
+    if not config.has_section(module_name):
         return {}
 
-    return dict(config.items(appname))
+    return dict(config.items(module_name))
 
 
-def rcfile(appname, args={}, strip_dashes=True):
+def rcfile(appname, args={}, strip_dashes=True, module_name=None):
     """
         Read environment variables and config files and return them merged with predefined list of arguments.
 
@@ -93,6 +93,9 @@ def rcfile(appname, args={}, strip_dashes=True):
 
     environ = get_environment(appname)
 
-    config = get_config(appname, args.get('config', ''))
+    if not module_name:
+        module_name = appname
+
+    config = get_config(appname, module_name, args.get('config', ''))
 
     return merge(merge(args, config), environ)
